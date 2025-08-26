@@ -1,0 +1,10 @@
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\bin\Debug\Word-IQ-Application.exe.config
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\bin\Debug\Word-IQ-Application.exe
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\bin\Debug\Word-IQ-Application.pdb
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\obj\Debug\Word-IQ-Application.csproj.AssemblyReference.cache
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\obj\Debug\Word_IQ_Application.Form1.resources
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\obj\Debug\Word_IQ_Application.Properties.Resources.resources
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\obj\Debug\Word-IQ-Application.csproj.GenerateResource.cache
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\obj\Debug\Word-IQ-Application.csproj.CoreCompileInputs.cache
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\obj\Debug\Word-IQ-Application.exe
+D:\NIBM\HND\PDSA\Coursework\WordIQ-Application\Word-IQ-Application\Word-IQ-Application\obj\Debug\Word-IQ-Application.pdb
