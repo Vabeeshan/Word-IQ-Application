@@ -30,11 +30,12 @@ namespace Word_IQ_Application
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -50,6 +51,16 @@ namespace Word_IQ_Application
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(78, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(201, 50);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Word IQ";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Word_IQ_Application.Properties.Resources.idea;
@@ -61,18 +72,9 @@ namespace Word_IQ_Application
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(78, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 50);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Word IQ";
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnStart);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,6 +82,13 @@ namespace Word_IQ_Application
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 350);
             this.panel2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(290, 84);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(221, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // label2
             // 
@@ -91,12 +100,15 @@ namespace Word_IQ_Application
             this.label2.TabIndex = 0;
             this.label2.Text = "What\'s your champ Name";
             // 
-            // textBox1
+            // btnStart
             // 
-            this.textBox1.Location = new System.Drawing.Point(290, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 1;
+            this.btnStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnStart.Location = new System.Drawing.Point(436, 126);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 2;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -125,6 +137,7 @@ namespace Word_IQ_Application
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnStart;
     }
 }
 
