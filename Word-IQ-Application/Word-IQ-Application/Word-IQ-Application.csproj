@@ -190,5 +190,10 @@
   <ItemGroup>
     <None Include="Resources\idea.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="dictionary.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
