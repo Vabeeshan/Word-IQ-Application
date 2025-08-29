@@ -1,0 +1,16 @@
+﻿listen
+silent
+earth
+heart
+stone
+tones
+night
+thing
+male
+meal
+lemon
+melon
+care
+race
+loop
+pool
