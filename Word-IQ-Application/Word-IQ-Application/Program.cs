@@ -16,7 +16,7 @@ namespace Word_IQ_Application
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Palindrome());
+            Application.Run(new Form1());
         }
     }
 }

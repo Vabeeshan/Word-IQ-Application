@@ -104,6 +104,7 @@
     <Compile Include="Anagram.Designer.cs">
       <DependentUpon>Anagram.cs</DependentUpon>
     </Compile>
+    <Compile Include="classSession.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

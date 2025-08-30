@@ -16,5 +16,11 @@ namespace Word_IQ_Application
         {
             InitializeComponent();
         }
+
+        private void Anagram_Load(object sender, EventArgs e)
+        {
+            lblName.Text = classSession.PlayerName;
+            lblScore.Text = classSession.Score.ToString();
+        }
     }
 }

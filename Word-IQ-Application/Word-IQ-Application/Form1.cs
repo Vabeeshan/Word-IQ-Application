@@ -22,9 +22,12 @@ namespace Word_IQ_Application
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
-
+            classSession.PlayerName = txtName.Text;
+            Anagram anagram = new Anagram();
+            anagram.Show();
+            this.Hide();
         }
     }
 }
