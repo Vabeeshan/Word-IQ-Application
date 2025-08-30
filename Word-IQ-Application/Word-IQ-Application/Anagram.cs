@@ -28,6 +28,9 @@ namespace Word_IQ_Application
 
         private void Anagram_Load(object sender, EventArgs e)
         {
+            txtName.Text = GameSession.PlayerName;
+            txtScore.Text = GameSession.Score.ToString();
+
                 // Load dictionary file once
                 dictionary = new HashSet<string>(System.IO.File.ReadAllLines("dictionary.txt"));
                 //calling the method to load random words

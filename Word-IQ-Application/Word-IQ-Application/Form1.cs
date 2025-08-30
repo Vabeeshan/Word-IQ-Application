@@ -26,5 +26,16 @@ namespace Word_IQ_Application
         {
 
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            GameSession.PlayerName = txtName.Text;
+            GameSession.Score = 0;
+
+            Anagram anagram = new Anagram();
+            anagram.Show();
+            this.Hide();
+
+        }
     }
 }

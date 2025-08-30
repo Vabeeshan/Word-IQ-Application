@@ -30,32 +30,38 @@ namespace Word_IQ_Application
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblAnagram = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.rbNo = new System.Windows.Forms.RadioButton();
+            this.rbYes = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvGrid = new System.Windows.Forms.DataGridView();
+            this.lblWord = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtScore = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Controls.Add(this.radioButton1);
+            this.panel2.Controls.Add(this.btnCheck);
+            this.panel2.Controls.Add(this.rbNo);
+            this.panel2.Controls.Add(this.rbYes);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.lblAnagram);
+            this.panel2.Controls.Add(this.dgvGrid);
+            this.panel2.Controls.Add(this.lblWord);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
@@ -63,15 +69,81 @@ namespace Word_IQ_Application
             this.panel2.Size = new System.Drawing.Size(800, 350);
             this.panel2.TabIndex = 8;
             // 
-            // lblAnagram
+            // button2
             // 
-            this.lblAnagram.AutoSize = true;
-            this.lblAnagram.Font = new System.Drawing.Font("Microsoft Tai Le", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnagram.Location = new System.Drawing.Point(510, 38);
-            this.lblAnagram.Name = "lblAnagram";
-            this.lblAnagram.Size = new System.Drawing.Size(210, 41);
-            this.lblAnagram.TabIndex = 5;
-            this.lblAnagram.Text = "\"Word here\"";
+            this.button2.Location = new System.Drawing.Point(663, 249);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Next";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(467, 249);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 10;
+            this.btnCheck.Text = "Check";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
+            // rbNo
+            // 
+            this.rbNo.AutoSize = true;
+            this.rbNo.Location = new System.Drawing.Point(484, 173);
+            this.rbNo.Name = "rbNo";
+            this.rbNo.Size = new System.Drawing.Size(39, 17);
+            this.rbNo.TabIndex = 9;
+            this.rbNo.TabStop = true;
+            this.rbNo.Text = "No";
+            this.rbNo.UseVisualStyleBackColor = true;
+            // 
+            // rbYes
+            // 
+            this.rbYes.AutoSize = true;
+            this.rbYes.Location = new System.Drawing.Point(484, 140);
+            this.rbYes.Name = "rbYes";
+            this.rbYes.Size = new System.Drawing.Size(43, 17);
+            this.rbYes.TabIndex = 8;
+            this.rbYes.TabStop = true;
+            this.rbYes.Text = "Yes";
+            this.rbYes.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(480, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(230, 21);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Is that word is visible in the grid";
+            // 
+            // dgvGrid
+            // 
+            this.dgvGrid.AllowUserToAddRows = false;
+            this.dgvGrid.AllowUserToResizeColumns = false;
+            this.dgvGrid.AllowUserToResizeRows = false;
+            this.dgvGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrid.ColumnHeadersVisible = false;
+            this.dgvGrid.Location = new System.Drawing.Point(41, 38);
+            this.dgvGrid.Name = "dgvGrid";
+            this.dgvGrid.ReadOnly = true;
+            this.dgvGrid.RowHeadersVisible = false;
+            this.dgvGrid.Size = new System.Drawing.Size(377, 288);
+            this.dgvGrid.TabIndex = 6;
+            // 
+            // lblWord
+            // 
+            this.lblWord.AutoSize = true;
+            this.lblWord.Font = new System.Drawing.Font("Microsoft Tai Le", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWord.Location = new System.Drawing.Point(510, 38);
+            this.lblWord.Name = "lblWord";
+            this.lblWord.Size = new System.Drawing.Size(210, 41);
+            this.lblWord.TabIndex = 5;
+            this.lblWord.Text = "\"Word here\"";
             // 
             // label2
             // 
@@ -85,6 +157,7 @@ namespace Word_IQ_Application
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -103,20 +176,6 @@ namespace Word_IQ_Application
             this.label1.TabIndex = 2;
             this.label1.Text = "Word IQ";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.Location = new System.Drawing.Point(41, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(377, 288);
-            this.dataGridView1.TabIndex = 6;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Word_IQ_Application.Properties.Resources.idea;
@@ -127,55 +186,57 @@ namespace Word_IQ_Application
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // panel3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(480, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(230, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Is that word is visible in the grid";
+            this.panel3.Controls.Add(this.txtScore);
+            this.panel3.Controls.Add(this.txtName);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(578, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(222, 100);
+            this.panel3.TabIndex = 4;
             // 
-            // radioButton1
+            // txtScore
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(484, 140);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(43, 17);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Yes";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.txtScore.AutoSize = true;
+            this.txtScore.Font = new System.Drawing.Font("Microsoft Yi Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtScore.Location = new System.Drawing.Point(73, 31);
+            this.txtScore.Name = "txtScore";
+            this.txtScore.Size = new System.Drawing.Size(90, 21);
+            this.txtScore.TabIndex = 10;
+            this.txtScore.Text = "score here";
             // 
-            // radioButton2
+            // txtName
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(484, 173);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(39, 17);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.txtName.AutoSize = true;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Yi Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(73, 6);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(91, 21);
+            this.txtName.TabIndex = 9;
+            this.txtName.Text = "name here";
             // 
-            // button2
+            // label4
             // 
-            this.button2.Location = new System.Drawing.Point(663, 249);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Next";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 21);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Score :";
             // 
-            // button1
+            // label5
             // 
-            this.button1.Location = new System.Drawing.Point(467, 249);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Check";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 21);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Name :";
             // 
             // WordQuizz
             // 
@@ -187,12 +248,15 @@ namespace Word_IQ_Application
             this.Name = "WordQuizz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WordQuizz";
+            this.Load += new System.EventHandler(this.WordQuizz_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -200,16 +264,21 @@ namespace Word_IQ_Application
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblAnagram;
+        private System.Windows.Forms.Label lblWord;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.DataGridView dgvGrid;
+        private System.Windows.Forms.RadioButton rbNo;
+        private System.Windows.Forms.RadioButton rbYes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label txtScore;
+        private System.Windows.Forms.Label txtName;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
