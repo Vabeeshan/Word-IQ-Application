@@ -1,0 +1,177 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+namespace Word_IQ_Application
+{
+    public partial class WordQuizz : Form
+    {
+        private string connectionString = "server=localhost;user=root;password=;database=wordiq;";
+        private string currentWord = "";
+        private Random random = new Random();
+
+        private Stack<string> wordStack = new Stack<string>();
+        private char[,] currentGrid = new char[8, 8]; // Store current grid
+
+
+        public WordQuizz()
+        {
+            InitializeComponent();
+        }
+
+        // 🔹 Load words into stack
+        private void LoadWordsIntoStack()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT word FROM wordquizz;";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string word = reader.GetString("word").ToUpper();
+                    wordStack.Push(word);
+                }
+            }
+        }
+
+        // 🔹 Pick random word from stack
+        private string GetRandomWordFromStack()
+        {
+            if (wordStack.Count == 0) return "";
+            List<string> wordList = new List<string>(wordStack);
+            return wordList[random.Next(wordList.Count)];
+        }
+
+        // 🔹 Load word & grid
+        private void LoadNextWordAndGrid()
+        {
+            currentWord = GetRandomWordFromStack();
+            if (string.IsNullOrEmpty(currentWord))
+            {
+                MessageBox.Show("No words available!");
+                return;
+            }
+
+            lblWord.Text = currentWord;
+            currentGrid = GenerateGrid(currentWord);
+            DisplayGrid(currentGrid);
+        }
+
+        // 🔹 Generate grid
+        private char[,] GenerateGrid(string word)
+        {
+            char[,] grid = new char[8, 8];
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
+                    grid[i, j] = (char)random.Next('A', 'Z' + 1);
+
+            int row = random.Next(0, 8);
+            int startCol = random.Next(0, 8 - word.Length);
+
+            for (int i = 0; i < word.Length; i++)
+                grid[row, startCol + i] = word[i];
+
+            return grid;
+        }
+
+        // 🔹 Display grid in DataGridView
+        private void DisplayGrid(char[,] grid)
+        {
+            dgvGrid.ColumnCount = 7;
+            dgvGrid.RowCount = 7;
+            dgvGrid.RowHeadersVisible = false;
+            dgvGrid.ColumnHeadersVisible = false;
+
+            for (int i = 0; i < 7; i++)
+            {
+                dgvGrid.Rows[i].Height = 40;
+                for (int j = 0; j < 7; j++)
+                {
+                    dgvGrid.Columns[j].Width = 40;
+                    dgvGrid[j, i].Value = grid[i, j];
+                }
+            }
+        }
+
+        // 🔹 Search function: checks if word exists in grid (left-to-right only for now)
+        private bool WordExistsInGrid(string word)
+        {
+            word = word.ToUpper();
+
+            for (int row = 0; row < 7; row++)
+            {
+                for (int col = 0; col < 7; col++)
+                {
+                    if (currentGrid[row, col] == word[0]) // Found first letter
+                    {
+                        // Try searching to the right
+                        if (CheckDirection(row, col, word, 0, 1)) return true;
+
+                        // Try searching downward
+                        if (CheckDirection(row, col, word, 1, 0)) return true;
+
+                        // Try diagonal down-right
+                        if (CheckDirection(row, col, word, 1, 1)) return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        // 🔹 Helper: check word in one direction (dx, dy)
+        private bool CheckDirection(int row, int col, string word, int dx, int dy)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+                int newRow = row + i * dx;
+                int newCol = col + i * dy;
+
+                // Out of bounds check
+                if (newRow < 0 || newRow >= 7 || newCol < 0 || newCol >= 7)
+                    return false;
+
+                if (currentGrid[newRow, newCol] != word[i])
+                    return false;
+            }
+            return true;
+        }
+
+        private void WordQuizz_Load(object sender, EventArgs e)
+        {
+            LoadWordsIntoStack();
+            LoadNextWordAndGrid();
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            string answer = lblWord.Text.ToUpper();
+
+            bool wordFound = WordExistsInGrid(answer);
+
+            if (wordFound)
+            {
+                if (rbYes.Checked) // User said Yes
+                    MessageBox.Show("✅ Correct Answer!");
+                else
+                    MessageBox.Show("❌ Wrong Answer!");
+            }
+            else
+            {
+                if (rbNo.Checked) // User said No
+                    MessageBox.Show("✅ Correct Answer!");
+                else
+                    MessageBox.Show("❌ Wrong Answer!");
+            }
+        }
+    }
+}
