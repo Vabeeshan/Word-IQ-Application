@@ -14,11 +14,16 @@ namespace Word_IQ_Application
         // 🔹 Store player's score
         public static int Score { get; set; } = 0;
 
+        public static int wrongAttempts { get; set; } = 0;
+
+        
+
         // 🔹 Method to reset game session
         public static void Reset()
         {
             PlayerName = "";
             Score = 0;
+            wrongAttempts = 0;
         }
     }
 }

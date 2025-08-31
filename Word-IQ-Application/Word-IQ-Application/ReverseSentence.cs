@@ -12,6 +12,8 @@ namespace Word_IQ_Application
 {
     public partial class ReverseSentence : Form
     {
+        private int countdown = 30;
+        private Timer questionTimer;
         // 🔹 Holds the current question text retrieved from DB or passed to this form
         private string questionSentence = "";
 
@@ -107,12 +109,69 @@ namespace Word_IQ_Application
             // 3️⃣ Compare user input with expected answer (case-insensitive)
             if (userAnswer.Equals(expectedAnswer, StringComparison.OrdinalIgnoreCase))
             {
-                MessageBox.Show("✅ Correct! Well done.");
+                questionTimer.Stop();
+                MessageBox.Show("✅ Correct! Well done."+ expectedAnswer);
+                if (countdown < 0)
+                {
+                    GameSession.Score -= countdown;
+                }
+                else
+                {
+                    GameSession.Score += (10 + countdown);
+                }
+
+                WordQuizz rq = new WordQuizz();
+                rq.Show();
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("❌ Wrong! \nExpected: " );
+                MessageBox.Show("❌ Wrong! \nExpected: " + expectedAnswer);
+                if ( GameSession.wrongAttempts > 2)
+                {
+                    GameSession.wrongAttempts++;
+                    GameSession.Score -= countdown;
+                   
+                }
+                WordQuizz rq = new WordQuizz();
+                rq.Show();
+                this.Hide();
             }
+        }
+
+        private void ReverseSentence_Load(object sender, EventArgs e)
+        {
+            txtName.Text = GameSession.PlayerName;
+            txtScore.Text = GameSession.Score.ToString();
+            StartQuestionTimer();
+        }
+
+        private void StartQuestionTimer()
+        {
+
+            lblTimer.Text = countdown.ToString();
+
+            questionTimer = new Timer();
+            questionTimer.Interval = 1000; // 1000 ms = 1 second
+            questionTimer.Tick += timer1_Tick;
+            questionTimer.Start();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            countdown--; // decrease by 1 each second
+            lblTimer.Text = countdown.ToString();
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            countdown--; // decrease by 1 each second
+            lblTimer.Text = countdown.ToString();
+        }
+
+        private void lblTimer_Click(object sender, EventArgs e)
+        {
+            countdown--; // decrease by 1 each second
+            lblTimer.Text = countdown.ToString();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace Word_IQ_Application
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -36,21 +37,24 @@ namespace Word_IQ_Application
             this.tztAnagram = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtScore = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblTimer);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnCheck);
@@ -120,26 +124,6 @@ namespace Word_IQ_Application
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 3;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(78, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 50);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Word IQ";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Word_IQ_Application.Properties.Resources.idea;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(69, 67);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.txtScore);
@@ -192,6 +176,41 @@ namespace Word_IQ_Application
             this.label5.TabIndex = 7;
             this.label5.Text = "Name :";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(78, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(201, 50);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Word IQ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Word_IQ_Application.Properties.Resources.idea;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(69, 67);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(736, 315);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(39, 16);
+            this.lblTimer.TabIndex = 8;
+            this.lblTimer.Text = "Time";
+            this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
             // ReverseSentence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,13 +221,14 @@ namespace Word_IQ_Application
             this.Name = "ReverseSentence";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReverseSentence";
+            this.Load += new System.EventHandler(this.ReverseSentence_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,5 +249,7 @@ namespace Word_IQ_Application
         private System.Windows.Forms.Label txtName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -4,6 +4,7 @@ earth
 heart
 stone
 tones
+notes
 night
 thing
 male

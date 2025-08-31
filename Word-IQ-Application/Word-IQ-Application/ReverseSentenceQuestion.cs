@@ -20,7 +20,7 @@ namespace Word_IQ_Application
         private Timer questionTimer;
 
         // 🔹 Countdown value
-        private int countdown = 5;
+        private int countdown = 10;
 
         public ReverseSentenceQuestion()
         {
@@ -61,7 +61,7 @@ namespace Word_IQ_Application
         // 🔹 Function to handle timer with countdown
         private void StartQuestionTimer()
         {
-            countdown = 6; // reset countdown each time
+          
             lblTimer.Text =  countdown.ToString() ;
 
             questionTimer = new Timer();
@@ -90,7 +90,8 @@ namespace Word_IQ_Application
 
         private void ReverseSentenceQuestion_Load_1(object sender, EventArgs e)
         {
-           
+            txtName.Text = GameSession.PlayerName;
+            txtScore.Text = GameSession.Score.ToString();
             // Step 1: Load all questions from DB into the list
             allQuestions = LoadAllQuestions();
 
